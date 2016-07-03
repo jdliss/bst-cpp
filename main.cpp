@@ -44,5 +44,7 @@ int main() {
     cout << "something went wrong" << endl;
   }
 
+  cout << "Max value in tree: " << bst.max() << endl;
+
   return 0;
 }

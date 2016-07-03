@@ -12,4 +12,5 @@ class BST {
   int depthOf(int, Node*);
   bool includes(int);
   bool includes(int, Node*);
+  int max();
 };

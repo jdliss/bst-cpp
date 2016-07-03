@@ -101,3 +101,11 @@ bool BST::includes(int value, Node* currentNode) {
     }
   }
 }
+
+int BST::max() {
+  Node* currentNode = this->root;
+  while (currentNode->rchild != NULL) {
+    currentNode = currentNode->rchild;
+  }
+  return currentNode->value;
+}
