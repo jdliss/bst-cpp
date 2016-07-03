@@ -10,5 +10,5 @@ class Node {
   Node* lchild;
   Node* rchild;
 
-  Node(string);
+  Node(string, int);
 };

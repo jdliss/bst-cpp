@@ -5,6 +5,7 @@ class BST {
   Node* root;
 
   BST(Node*);
-  BST(string);
+  BST(string, int);
   void insert(string, int);
+  void insert(string, int, Node*);
 };
