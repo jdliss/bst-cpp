@@ -117,3 +117,22 @@ int BST::min() {
   }
   return currentNode->value;
 }
+
+vector<map<string, int>> BST::sort() {
+  sort(this->root);
+  return this->sorted;
+}
+
+void BST::sort(Node* currentNode) {
+  if (currentNode->lchild != NULL) {
+    sort(currentNode->lchild);
+  }
+
+  map<string, int> hash;
+  hash[currentNode->data] = currentNode->value;
+  this->sorted.push_back(hash);
+
+  if (currentNode->rchild != NULL) {
+    sort(currentNode->rchild);
+  }
+}
