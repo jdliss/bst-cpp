@@ -13,4 +13,5 @@ class BST {
   bool includes(int);
   bool includes(int, Node*);
   int max();
+  int min();
 };

@@ -109,3 +109,11 @@ int BST::max() {
   }
   return currentNode->value;
 }
+
+int BST::min() {
+  Node* currentNode = this->root;
+  while (currentNode->lchild != NULL) {
+    currentNode = currentNode->lchild;
+  }
+  return currentNode->value;
+}

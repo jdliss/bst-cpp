@@ -44,7 +44,11 @@ int main() {
     cout << "something went wrong" << endl;
   }
 
+  bst.insert("max node", 100);
+  bst.insert("min node", 0);
+
   cout << "Max value in tree: " << bst.max() << endl;
+  cout << "Min value in tree: " << bst.min() << endl;
 
   return 0;
 }
