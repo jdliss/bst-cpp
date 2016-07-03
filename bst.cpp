@@ -25,13 +25,15 @@ void BST::insert(string data, int value) {
       Node *node = new Node(data, value);
       this->root->lchild = node;
     } else {
-      insert(data, value, this->root->rchild);
+      insert(data, value, this->root->lchild);
     }
   }
 }
 
 void BST::insert(string data, int value, Node* currentNode) {
-  if (currentNode->value < value) {
+  if (currentNode->value == value) {
+    throw invalid_argument("Duplicates are not allowed to be inserted.");
+  } else if (currentNode->value < value) {
     if (currentNode->rchild == NULL) {
       Node *node = new Node(data, value);
       currentNode->rchild = node;
