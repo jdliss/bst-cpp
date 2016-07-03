@@ -71,9 +71,33 @@ int BST::depthOf(int value, Node* currentNode) {
     return 1;
   } else {
     if (currentNode->value < value) {
-      return 1 +depthOf(value, currentNode->rchild);
+      return 1 + depthOf(value, currentNode->rchild);
     } else {
       return 1 + depthOf(value, currentNode->lchild);
+    }
+  }
+}
+
+bool BST::includes(int value) {
+  if (this->root->value == value) {
+    return true;
+  } else {
+    if (this->root->value < value) {
+      return includes(value, this->root->rchild);
+    } else {
+      return includes(value, this->root->lchild);
+    }
+  }
+}
+
+bool BST::includes(int value, Node* currentNode) {
+  if (currentNode->value == value) {
+    return true;
+  } else {
+    if (currentNode->value < value) {
+      return includes(value, currentNode->rchild);
+    } else {
+      return includes(value, currentNode->lchild);
     }
   }
 }

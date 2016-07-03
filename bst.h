@@ -10,4 +10,6 @@ class BST {
   int insert(string, int, Node*);
   int depthOf(int);
   int depthOf(int, Node*);
+  bool includes(int);
+  bool includes(int, Node*);
 };
