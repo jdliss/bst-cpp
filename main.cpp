@@ -25,5 +25,18 @@ int main() {
   cout << "root->lchild->rchild data: " << lchildTwo->data
        << ", value: " << lchildTwo->value << endl;
 
+  cout << "depth of root node is: " << ll.depthOf(50) << endl;
+  cout << "depth of root->rchild is: " << ll.depthOf(55) << endl;
+  cout << "depth of root->lchild is: " << ll.depthOf(45) << endl;
+
+  cout << "depth of root->rchild->lchild is: " << ll.depthOf(52) << endl;
+  cout << "depth of root->lchild->rchild is: " << ll.depthOf(48) << endl;
+
+  ll.insert("rchild 3", 53);
+  ll.insert("rchild 4", 54);
+
+  cout << "depth of root->rchild->lchild->rchild is: " << ll.depthOf(53) << endl;
+  cout << "depth of root->rchild->lchild->rchild->rchild is: " << ll.depthOf(54) << endl;
+
   return 0;
 }
