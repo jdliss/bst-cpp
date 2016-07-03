@@ -6,8 +6,8 @@ class BST {
 
   BST(Node*);
   BST(string, int);
-  void insert(string, int);
-  void insert(string, int, Node*);
+  int insert(string, int);
+  int insert(string, int, Node*);
   int depthOf(int);
   int depthOf(int, Node*);
 };
