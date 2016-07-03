@@ -50,7 +50,12 @@ int main() {
   cout << "Max value in tree: " << bst.max() << endl;
   cout << "Min value in tree: " << bst.min() << endl;
 
-  vector<map<string, int>> sortedTree = bst.sort();
+  BST newBST = BST("root node", 50);
+  newBST.load("data.txt");
+
+  cout << "\nCreate new tree, load from file, print sorted tree" << endl << endl;
+
+  vector<map<string, int>> sortedTree = newBST.sort();
   for (int i = 0; i < sortedTree.size(); i++) {
     for ( const auto &myPair : sortedTree[i] ) {
       cout << "{ " << myPair.first << ", " << myPair.second << " }" << endl;

@@ -1,5 +1,8 @@
 #include "bst.h"
 #include <stdexcept>
+#include <fstream>
+#include <sstream>
+
 
 BST::BST(Node *node) {
   this->root = node;
@@ -11,9 +14,7 @@ BST::BST(string data, int value) {
 }
 
 int BST::insert(string data, int value) {
-  if (this->root->value == value) {
-    throw std::invalid_argument("Duplicates are not allowed to be inserted.");
-  } else if (this->root->value < value) {
+  if (this->root->value < value) {
     if (this->root->rchild == NULL) {
       Node *node = new Node(data, value);
       this->root->rchild = node;
@@ -33,9 +34,7 @@ int BST::insert(string data, int value) {
 }
 
 int BST::insert(string data, int value, Node* currentNode) {
-  if (currentNode->value == value) {
-    throw invalid_argument("Duplicates are not allowed to be inserted.");
-  } else if (currentNode->value < value) {
+  if (currentNode->value < value) {
     if (currentNode->rchild == NULL) {
       Node *node = new Node(data, value);
       currentNode->rchild = node;
@@ -134,5 +133,36 @@ void BST::sort(Node* currentNode) {
 
   if (currentNode->rchild != NULL) {
     sort(currentNode->rchild);
+  }
+}
+
+void BST::load(string filename) {
+  vector<string> data;
+  string line;
+  ifstream file;
+  file.open(filename);
+  while (getline(file, line)) {
+    data.push_back(line);
+  }
+
+  vector<map<string, int>> parsedLines;
+  for (const string s : data) {
+
+    string::size_type loc = s.find( ",", 0 );
+    string value = s.substr(0, loc);
+    int val = atoi(value.c_str());
+
+    string data = s.substr(loc+1);
+    map<string, int> hash;
+    hash[data] = val;
+    parsedLines.push_back(hash);
+  }
+
+  for (int i = 0; i < parsedLines.size(); i++) {
+    for ( const auto &pair : parsedLines[i]){
+      int value = pair.second;
+      string data = pair.first;
+      insert(data.erase(0,1), value);
+    }
   }
 }

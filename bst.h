@@ -19,6 +19,7 @@ class BST {
   int min();
   vector<map<string, int>> sort();
   void sort(Node*);
+  void load(string);
 
  private:
   vector<map<string, int>> sorted;
