@@ -14,23 +14,7 @@ BST::BST(string data, int value) {
 }
 
 int BST::insert(string data, int value) {
-  if (this->root->value < value) {
-    if (this->root->rchild == NULL) {
-      Node *node = new Node(data, value);
-      this->root->rchild = node;
-      return depthOf(value);
-    } else {
-      return insert(data, value, this->root->rchild);
-    }
-  } else {
-    if (this->root->lchild == NULL) {
-      Node *node = new Node(data, value);
-      this->root->lchild = node;
-      return depthOf(value);
-    } else {
-      return insert(data, value, this->root->lchild);
-    }
-  }
+  return insert(data, value, this->root);
 }
 
 int BST::insert(string data, int value, Node* currentNode) {
@@ -54,15 +38,7 @@ int BST::insert(string data, int value, Node* currentNode) {
 }
 
 int BST::depthOf(int value) {
-  if (this->root->value == value) {
-    return 0;
-  } else {
-    if (this->root->value < value) {
-      return depthOf(value, this->root->rchild);
-    } else {
-      return depthOf(value, this->root->lchild);
-    }
-  }
+  return depthOf(value, this->root);
 }
 
 int BST::depthOf(int value, Node* currentNode) {
@@ -78,15 +54,7 @@ int BST::depthOf(int value, Node* currentNode) {
 }
 
 bool BST::includes(int value) {
-  if (this->root->value == value) {
-    return true;
-  } else {
-    if (this->root->value < value) {
-      return includes(value, this->root->rchild);
-    } else {
-      return includes(value, this->root->lchild);
-    }
-  }
+  return includes(value, this->root);
 }
 
 bool BST::includes(int value, Node* currentNode) {
