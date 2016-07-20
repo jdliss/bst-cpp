@@ -16,7 +16,9 @@ class BST {
   bool includes(int);
   bool includes(int, Node*);
   int max();
+  Node* maxNode();
   int min();
+  Node* minNode();
   vector<map<string, int>> sort();
   void sort(Node*);
   void load(string);

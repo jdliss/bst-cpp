@@ -69,12 +69,16 @@ bool BST::includes(int value, Node* currentNode) {
   }
 }
 
-int BST::max() {
+Node* BST::maxNode() {
   Node* currentNode = this->root;
   while (currentNode->rchild != NULL) {
     currentNode = currentNode->rchild;
   }
-  return currentNode->value;
+  return currentNode;
+}
+
+int BST::max() {
+  return maxNode()->value;
 }
 
 int BST::min() {
