@@ -14,23 +14,7 @@ BST::BST(string data, int value) {
 }
 
 int BST::insert(string data, int value) {
-  if (this->root->value < value) {
-    if (this->root->rchild == NULL) {
-      Node *node = new Node(data, value);
-      this->root->rchild = node;
-      return depthOf(value);
-    } else {
-      return insert(data, value, this->root->rchild);
-    }
-  } else {
-    if (this->root->lchild == NULL) {
-      Node *node = new Node(data, value);
-      this->root->lchild = node;
-      return depthOf(value);
-    } else {
-      return insert(data, value, this->root->lchild);
-    }
-  }
+  return insert(data, value, this->root);
 }
 
 int BST::insert(string data, int value, Node* currentNode) {
