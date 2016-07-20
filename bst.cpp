@@ -38,15 +38,7 @@ int BST::insert(string data, int value, Node* currentNode) {
 }
 
 int BST::depthOf(int value) {
-  if (this->root->value == value) {
-    return 0;
-  } else {
-    if (this->root->value < value) {
-      return depthOf(value, this->root->rchild);
-    } else {
-      return depthOf(value, this->root->lchild);
-    }
-  }
+  return depthOf(value, this->root);
 }
 
 int BST::depthOf(int value, Node* currentNode) {
