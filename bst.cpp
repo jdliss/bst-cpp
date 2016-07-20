@@ -81,12 +81,16 @@ int BST::max() {
   return maxNode()->value;
 }
 
-int BST::min() {
+Node* BST::minNode() {
   Node* currentNode = this->root;
   while (currentNode->lchild != NULL) {
     currentNode = currentNode->lchild;
   }
-  return currentNode->value;
+  return currentNode;
+}
+
+int BST::min() {
+  return minNode()->value;
 }
 
 vector<map<string, int>> BST::sort() {

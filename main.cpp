@@ -51,6 +51,7 @@ int main() {
   cout << "Min value in tree: " << bst.min() << endl;
 
   cout << "Value of max node in tree " << bst.maxNode()->value << endl;
+  cout << "Value of min node in tree " << bst.minNode()->value << endl;
 
   BST newBST = BST("root node", 50);
   newBST.load("data.txt");
